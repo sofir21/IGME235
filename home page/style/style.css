@@ -1,0 +1,79 @@
+/* div {
+    width: 300px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+  } */
+
+/* color sheet https://coolors.co/palette/ce2029-0b090a-161a1d-660708-a4161a-ba181b-b1a7a6-d3d3d3-f5f3f4-ffffff */
+body
+{
+    font-family: 'Lato', sans-serif;
+    padding: 50px;
+    margin: 20px;
+    background-color:#D3D3D3;
+}
+h1
+{
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    padding: 5px;
+    border: 5px solid #0B090A;
+    background-color: #161A1D;
+    color: #D3D3D3;
+}
+h2
+{
+    font-family: 'Lato', sans-serif;
+    text-align: left;
+    padding: 5px;
+    
+    color: #660708;
+}
+ .myPic
+{
+    
+    border: none;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+    width: 25%;
+    height: 20%;
+    border-radius: 50%;
+}
+.list
+{
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 45%;
+}
+
+
+/* link colors */
+a:link
+{
+    color: #660708;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited
+{
+    color: #28455c;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #BA181B;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active
+{
+    color: #BA181B;
+    background-color: transparent;
+    text-decoration: underline;
+}
