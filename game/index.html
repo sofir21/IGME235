@@ -15,64 +15,35 @@
 
     <!-- style -->
     <!-- coolors link : https://coolors.co/palette/011a51-1957db-487bea-7ea3f1-c8d7f9-b83700-f06c00-fab129-fbc55f-fde9c3 -->
-    <style>
-        header
-        {
-            background-color: #1957DB;
-        }
-        h1 { 
-            color:rgb(255, 152, 34);
-            font-family: sans-serif;
-            border-bottom: 1px solid rgb(25, 25, 36);
-            }
-        blockquote { 
-            background-color: #FBC55F;
-            padding: 1rem;
-            color: #B83700;
-            }
-        body
-        {
-            font-family: 'Lato', sans-serif;
-            color: #011A51;
-        }
-        h2
-        {
-            font-family: 'Lato', sans-serif;
-            color: #1957DB;
-        }
-        a:link
-        {
-            color:#1957DB;
-        }
-        a:hover, a:active, a:visited 
-        {
-            color:#B83700
-        }
 
-        
-    </style>
 
     <title>Dig Dug</title>
+
+    <link rel = "stylesheet" href = "Style.css">
     
 </head>
 
 
 
 <header >
-    <object data="images/dig-dug.svg" type = "svg" width = "130" height = "45">
-        <img src= "images/dig-dug.png" alt="Dig Dug logo." width = "130" height = "45" id="logo">
-    </object>
-    
-    <img src= "images/fygar_inflate_resized.png" alt="" width="80" height="40" id="sprites">
-    <hr>
+    <div class = "head">
+        <object data="images/dig-dug.svg" type = "svg" id = "digdugtitle">
+            <img src= "images/dig-dug.png" alt="Dig Dug logo." id="logo">
+        </object>
+        
+        <img src= "images/fygar_inflate_resized.png" alt=""  id="sprites">
+        <hr> 
+    </div>   
 </header>
 
-<body style="background-color:#FDE9C3;" >
+<body>
     <!-- <h1>Dig Dug</h1> -->
    
 
     <main>
-    <h2>Publishing Info</h2>
+
+        <div class="mainText">
+            <h2>Publishing Info</h2>
     <ul>
         <li>Published by: Atari, Inc.</li>
         <li>Developed by: <abbr title= "Nakamura Manufactoring Company">Namco</abbr> Limited</li>
@@ -124,17 +95,21 @@
 		-- https://www.mobygames.com/mobyrank/source/sourceId,540/
     </p>
     <hr>
+    </div>
+    
+    
     </main>
 
+    <br>
 
     <footer>
-    <div id="source">
+    <div class="source">
     <h2 id="sourceLink">Source</h2>
     <p>
         https://www.mobygames.com/game/arcade/dig-dug
         
     </p>
-    <hr>
+    
     </div>
     </footer>
 </body>
