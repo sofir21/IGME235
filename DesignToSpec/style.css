@@ -1,0 +1,116 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: retro;
+    src: url("DesignToSpecAssets/Fonts/RetroComputer/retro_computer_personal_use.ttf");
+}
+@font-face {
+    font-family: dogica;
+    src: url("DesignToSpecAssets/Fonts/Dogica/OTF/dogicapixel.otf");
+}
+
+html {
+    /* sets base font size for rem sizing */
+    font-size: 12px;
+    font-family: dogica;
+    color: #fff;
+}
+
+h1, h2{
+    font-family: retro;
+    color: #fff;
+}
+
+.heading,
+footer {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #686868;
+}
+
+main
+{
+    background-color: #35363D;
+}
+
+
+#wrapper
+{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 5fr 5fr 5fr 1fr;
+    grid-template-areas:
+    "header"
+    "mainBody"
+    "picture"
+    "blocktypes"
+    "footer";
+}
+
+.heading
+{
+    grid-area: header;
+
+}
+
+footer
+{
+    grid-area: footer;
+}
+/* .mainBody
+{
+    grid-area: mainBody;
+    display: grid;
+    max-height: 80rem;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4px
+}
+
+.bodyLeft
+{
+    border: 50px solid #35363D;
+    border-left: 10rem solid #35363D;
+    padding: 50px;
+    background-color: #686868;
+}
+
+#oakTreePic
+{
+    border: 3px solid white;
+
+    width: 60%;
+} */
+
+.mainBody
+{
+    display:flex;
+    /* flex-flow: row wrap; */
+}
+
+#oakTreePic
+{
+    float: right;
+    width: 40%;
+}
+
+
+
+
+#valleyPic
+{
+    grid-area: picture;
+    width:100%;
+}
+
+.blocks
+{
+    grid-area: blocktypes;
+}
+
+
