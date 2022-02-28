@@ -4,6 +4,10 @@
 *{
     box-sizing: border-box;
 }
+html
+{
+    scroll-behavior: smooth;
+}
 
 /***********************************************/
 /******************MAIN COLORS***************/
@@ -17,11 +21,11 @@ footer
     background-color: #161A1D;
     color:#D3D3D3
 }
+
 h1
 {
     font-size: 30px;
     text-align:center;
-    
 }
 
 #subTitle
@@ -48,7 +52,7 @@ h2
     padding-top:2rem;
     color:#660708;
 }
-h3
+h3, h4
 {
     color:#660708;
 }
@@ -114,10 +118,11 @@ a:active
     "nav"
     "id"
     "skills"
-    "."
+    "project"
     "about"
     "foot";
 }
+
 
 @media screen and (min-width:575px)
 {
@@ -131,11 +136,13 @@ a:active
         grid-template-areas:
             "nav id"
             "nav skills"
-            "nav ."
+            "nav project"
             "nav about"
             "nav foot";
 
     }
+
+    
     
     .myID
     {
@@ -144,7 +151,8 @@ a:active
     h1
     {
         text-align:left;
-        padding-left: 1rem;
+        padding-left: 2rem;
+        padding-top: 1rem;
         position:fixed; 
         z-index:2; 
         margin:32rem 0 0;
@@ -166,10 +174,26 @@ a:active
         z-index:1; 
         margin:20rem 0 0;
         margin-top: 8rem;
+
+        margin-left: 1rem;;
+        padding-top: 2rem;
     }
 }
 @media screen and (max-width:575px)
 {
+    header
+    {
+        width: 100%;
+        position: fixed;
+
+    }
+    header ul
+    {
+        font-size: 13px;
+    }
+    main {
+        padding-top: 20%;
+      }
     h1 br
     {
         display:none;
@@ -187,11 +211,99 @@ a:active
 /**********************ASIGN TO GRID************************/
 /***********************************************/
 
+
 header
 {
     grid-area:nav;
 
 }
+
+/* project grid */
+.myProjects
+{
+    grid-area: project;
+}
+
+.projectBox
+{
+    display:grid;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "project1"
+    "project2"
+    "project3"
+    "project4";
+    
+}
+
+@media screen and (min-width:1300px)
+{
+    .projectBox
+    {
+        grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "project1 project2"
+    "project3 project4";
+    }
+
+}
+
+.myProjects h3, h4
+{
+    text-align: center;
+}
+
+.projectBox img 
+{
+
+    margin:1rem;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project1
+{
+    grid-area: project1;
+    align-items: center;
+    padding: 1rem;
+    margin:1rem;
+    background-color: #D3D3D3;
+}
+
+.project2
+{
+    grid-area: project2;
+    align-items: center;
+    padding: 1rem;
+    margin:1rem;
+    background-color: #D3D3D3;
+}
+
+.project3
+{
+    grid-area: project3;
+    align-items: center;
+    padding: 1rem;
+    margin:1rem;
+    background-color: #D3D3D3;
+}
+
+.project4
+{
+    grid-area: project4;
+    align-items: center;
+    padding: 1rem;
+    margin:1rem;
+    background-color: #D3D3D3;
+}
+
+
+
+
+
+
 
 /* ID grid */
 .myID
