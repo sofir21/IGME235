@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>DOM-3</title>
+	<style>
+		body{border:1px solid gray;}
+		p b{transform: rotate(20deg)}
+	</style>
+</head>
+<body>
+<h1>My Page</h1>
+<h2>Info</h2>
+<h2>Pictures</h2>
+<h2>More Info</h2>
+<p>Blah <b>Blah</b> Blah</p>
+<p>Blah <b>Blah</b> Blah</p>
+<p id="lastParagraph">Blah <b>Blah</b> Blah</p>
+<footer>Copyright &copy; <b>20XX</b></footer>
+<script>
+	"use strict"; 
+    
+    let h1 = document.querySelector("h1");
+    h1.innerHTML = "My UFO Page";
+
+    let h2 = document.querySelector("h2");
+    h2.innerHTML = "My UFO Info";
+    
+    let h2second = document.querySelector("h2:nth-of-type(2)");
+    h2second.innerHTML = "My UFO Pictures";
+
+    let h2third = document.querySelector("h2:nth-of-type(3)");
+    h2third.innerHTML = "";
+	
+    
+    document.body.style.fontFamily = "sans-serif";
+    document.body.style.color = "red";
+
+    let p1 = document.querySelector("p:nth-of-type(1)");
+    p1.style.color = "green";
+    p1.style.fontWeight = "bold";
+    p1.style.fontSize = "2rem";
+    p1.style.textTransform = "uppercase";
+    p1.style.textShadow = "3px 2px #A44";
+
+    let p2 = document.querySelector("p:nth-of-type(2)");
+    p2.innerHTML = "";
+    
+    let p3 = document.querySelector("p:nth-of-type(3)");
+    p3.innerHTML = "<img src='https://cdn.britannica.com/99/200099-050-5BBFA23F/UFO-farm-McMinnville-Oregon-1950.jpg' width = '300' height = '150'>";
+
+    let footer = document.querySelector("footer");
+    footer.innerHTML = "&copy 2022 Sofia Rivas";
+
+	</script>
+</body>
+</html>
