@@ -10,6 +10,9 @@ html
     scroll-behavior: smooth;
 }
 
+.nav{
+    justify-content: center;
+}
 /***********************************************/
 /******************MAIN COLORS***************/
 /***********************************************/
@@ -53,7 +56,7 @@ header ul
     margin-right: 3rem;
 }
 
-
+/* 
 @media screen and (max-width:480px)
 {
     #num4
@@ -68,7 +71,7 @@ header ul
     {
         padding-left: 0;
     }
-}
+} */
 
 h2
 {
