@@ -1,0 +1,107 @@
+@font-face {
+    font-family: Galaxy;
+    src: url(SF-Distant-Galaxy.ttf);
+}
+@font-face {
+    font-family: Gothic;
+    src: url(NanumGothic-Regular.ttf);
+}
+* {
+    font-family: "Galaxy", Arial, Helvetica, sans-serif;
+    
+}
+
+body{
+    background-color:#000000;
+    background-image: url("stars.jpg");
+    background-repeat: repeat;
+    
+}
+#grid{
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-auto-rows: 500px;
+    grid-template-areas: "text";
+    margin:5% 25%;
+
+}
+
+#head
+{
+    justify-self: center;
+    align-self:flex-start;
+    text-align: center;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+h2
+{
+    font-family: "Gothic", Arial, Helvetica, sans-serif;
+    color:rgb(242, 255, 0);
+}
+header{
+    
+    font-size:400%;
+    color:rgb(242, 255, 0);
+}
+
+#textbox{
+    display: grid;
+    grid-area:text;
+    grid-template-areas: "text text"
+                         "copy button";
+    background-image: url("deathstar.jpg");
+    background-repeat: no-repeat;
+}
+#textarea{
+    display: flex;
+    grid-area:text;
+    align-self: center;
+    justify-self: center;
+    padding-top: 10%;
+    font-size:150%;
+}
+h3{
+    font-family: "Gothic", Arial, Helvetica, sans-serif;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    color:rgb(242, 255, 0);
+    padding-left: 15%;
+    padding-right:15%
+}
+p{
+    font-family: "Gothic", Arial, Helvetica, sans-serif;
+    align-self: flex-end;
+    justify-self: flex-start;
+    grid-area: copy;
+    color:rgb(242, 255, 0);
+    padding-left: 2%;
+}
+
+button {
+    transition-duration: 0.4s;
+    grid-area:button;
+    height:50px;
+    width:150px;
+    align-self: end;
+    justify-self: end;
+    color: rgb(242, 255, 0);
+    border: solid 2px rgb(242, 255, 0);
+    background-color: black;
+}
+  
+button:hover {
+    background-color: rgb(242, 255, 0);
+
+    color: black;
+  }
+
+button:active
+{
+    color: black;
+    border: solid 2px black;
+    background-color: rgb(0, 145, 255);
+
+}

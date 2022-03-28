@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="style.css">
+    <title>Star Wars Quotes</title>
+</head>
+<body>
+    <div id = "head">
+        <header>Star Wars Quotes</header>
+        <h2>Created by Sofia Rivas</h2>
+    </div>
+
+    
+    <div id = "grid">
+    <div id = "textbox">
+        <h3 id = "textarea">
+
+        </h3>
+        <button class="button" onclick="displayQuote()">New Phrase</button>
+    </div>
+    </div>
+    <script>
+        let phraseBox = document.querySelector("h3");
+        function displayQuote(e= phraseBox, phrases = ["&quot;Try not. Do or do not. There is no try.&quot; <br>—Yoda", 
+        "&quot;Power! Unlimited power!&quot; <br>–Darth Sidious",
+        "&quot;You were the chosen one! It was said that you would destroy the Sith, not join them! Bring balance to the force, not leave it in darkness!&quot; <br>—Obi-Wan Kenobi",
+        "&quot;Be careful not to choke on your aspirations, director.&quot; <br>—Darth Vader" ,
+        "&quot;Why, you stuck-up half-witted scruffy-looking nerf herder.&quot; <br>—Princess Leia"])
+        {
+            let randomInt = Math.floor(Math.random() * phrases.length);
+            e.innerHTML = phrases[randomInt];
+        }
+        
+        window.onLoad(displayQuote());
+        button.onclick = displayQuote;
+    </script>
+</body>
+</html>
