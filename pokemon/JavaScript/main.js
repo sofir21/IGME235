@@ -5,11 +5,27 @@
 
  window.onload = (e) => 
  {
-     loadPokemon();
+    document.querySelector(".prevNextButtons").innerHTML = `<button type='button' id='prev' class='green'>Previous</button>
+    <button type='button' id='next' class='green'>Next</button>`
      document.querySelector("#search").onclick = searchButtonClicked;
      document.querySelector("#next").onclick = nextButtonClicked;
-     document.querySelector("#prev").onclick = prevButtonClicked;   
-         
+     document.querySelector("#prev").onclick = prevButtonClicked;
+     document.querySelector("#limit").onchange = limitChange;   
+    if(localStorage.getItem('offset')){
+        offset = parseInt(localStorage.getItem('offset'));
+    }
+    else 
+    {
+        offset = 0;
+    }
+    if(localStorage.getItem('limit')){
+        limit = parseInt(localStorage.getItem('limit'));
+    }
+    else 
+    {
+        limit = 5;
+    }
+    loadPokemon();
  }
  
  
@@ -24,15 +40,12 @@
   let displayTerm = "";
   let id = "";
   let number = 1;
-  let offset = 0;
- 
- 
- 
-  //let pokeNumsArray = [];
-  //let result;
-  //preset types given by ap
- //  let pokeTypeOptionsArray = ["0", "1" , "2" , "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14",
- // "15", "16", "17", "18", "10001", "10002"];
+  let offset;
+  let limit;
+  
+  
+  
+
  
  
   //loads pokemon
@@ -41,54 +54,65 @@
      console.log("loaded poke grid start");
      
      //sets up button to adjust search to limit if its changed
-     document.querySelector("#adjustSearch").innerHTML = `<button type='button' onclick='maxResultsChange()' id='mainPage' class='green'>Refresh</button>`
+     //document.querySelector("#adjustSearch").innerHTML = `<button type='button' onclick='reloadPage()' id='mainPage' class='green'>Refresh</button>`
  
+    //  document.querySelector(".prevNextButtons").innerHTML = `<button type='button' id='prev' class='green'>Previous</button>
+    //  <button type='button' id='next' class='green'>Next</button>`;
+
+       
+
+
      //loads pokemon onto page
-     let limit = document.querySelector("#limit").value;
+     //let limit = document.querySelector("#limit").value;
+
      let tempURL = POKE_URL + "?offset=" + offset + "&limit=" + limit;
      console.log(tempURL);
  
      getData(tempURL);
  
  
-      document.querySelector("#displaying").innerHTML = "Displaying results : " + number + " - " + limit;
+      document.querySelector("#displaying").innerHTML = "Displaying results : " + (offset + 1) + " - " + (offset + parseInt(limit));
  
  }
  
  //checks for search limit
- function maxResultsChange()
+ function reloadPage()
  {
-     let newlimit = document.querySelector("#limit").value;
+     //let newlimit = document.querySelector("#limit").value;
+
      console.log(limit);
      document.querySelector(".pokemonGrid").innerHTML = "";
      loadPokemon();
  }
+
+function backButton(){
+    document.querySelector(".prevNextButtons").innerHTML = `<button type='button' id='prev' class='green'>Previous</button>
+      <button type='button' id='next' class='green'>Next</button>`;
+    document.querySelector("#next").onclick = nextButtonClicked;
+    document.querySelector("#prev").onclick = prevButtonClicked;
+    loadPokemon();
+
+}
+
+
+
  
- 
+ function limitChange(){
+    let limitObject = document.querySelector("#limit");
+    let limitIndex = parseInt(limitObject.options[limitObject.selectedIndex].value);
+    localStorage.setItem('limit',limitIndex);
+    reloadPage();
+ }
  
  function nextButtonClicked()
  {
-     let limit = document.querySelector("#limit").value;
-     
+     //let limit = document.querySelector("#limit").value;
      offset += parseInt(limit);
+     localStorage.setItem('offset', offset);
      document.querySelector(".pokemonGrid").innerHTML = "";
      loadPokemon();
  
-     // console.log(" NEXT BUTTON PRESSED");
-     // document.querySelector(".pokemonGrid").innerHTML = "";
-     // number +=8;
-     //  pokeNumsArray = [];
-     
-     // for(i = 0; i < 8; i++)
-     //    {
-     //     pokeNumsArray.push(number + i);
-     //    }
- 
-     //    pokeNumsArray.forEach(element => {
-     //     let tempUrl = POKE_URL + element + "/";
-     //     getData(tempUrl);
-     //     tempUrl = "";
-     // });
+   
      document.querySelector("#displaying").innerHTML = "Displaying results : " + (offset + 1) + " - " + (parseInt(offset)+parseInt(limit));
  
  }
@@ -96,14 +120,27 @@
  
  function prevButtonClicked()
  {
-     let limit = document.querySelector("#limit").value;
-     if(offset > 0)
+     //let limit = document.querySelector("#limit").value;
+     if((offset - parseInt(limit))> 0)
      {
          offset -= parseInt(limit);
+         localStorage.setItem('offset', offset);
          document.querySelector(".pokemonGrid").innerHTML = "";
          loadPokemon();
          document.querySelector("#displaying").innerHTML = "Displaying results : " + (offset + 1) + " - " + (parseInt(offset)+parseInt(limit));
      }  
+    else if(offset == 0)
+    {
+        return;
+    }
+     else
+     { 
+         offset = 0;
+         document.querySelector(".pokemonGrid").innerHTML = "";
+         loadPokemon();
+         document.querySelector("#displaying").innerHTML = "Displaying results : " + (offset + 1) + " - " + (parseInt(offset)+parseInt(limit));
+    }
+
  }
  
  
@@ -174,6 +211,7 @@
      for(let i = 0; i < obj.results.length; i++){
          getData2(obj.results[i].url);
      }
+     console.log("asdgfaf");
  }
  
  
@@ -254,115 +292,8 @@
   function dataError(e){
       console.log("An Error Occurred");
       document.querySelector("#displaying").innerHTML = "Oopsie Woopsie there's been an error :-(";
+      document.querySelector("#displaying").innerHTML += `<p><br></p> <button type='button' onclick='backButton()'  class='green'>Go back</button>`;
+      document.querySelector(".prevNextButtons").innerHTML = "";
   }
  
  
-  // ::::::::::::::::::: code removed for now :::::::::::::::::::::
- 
- //THIS GOES INSIDE LOADPOKEMON()
- //sets up button for search by type
-     // document.querySelector("#searchTypeButton").innerHTML += `<button type='button' onclick='searchByType()' id='mainPage' class='green'>Search By Type.</button>`
-     
-     // pokeNumsArray = []
-     // for(i = 0; i < 8; i++)
-     //    {
-     //     pokeNumsArray.push(number + i);
-     //    }
- 
-     //    //from to numbers chosen
-     //    pokeNumsArray.forEach(element => 
-     //     {
-     //         let tempUrl = POKE_URL + element + "/";
-     //         getData(tempUrl);
-     //         tempUrl = "";
-         
-     //     });
- 
- 
- 
- 
- 
-  // function searchByType()
- // {
-    
- //     let searchTypeCheck;
- //     let limit = document.querySelector("#type").value;
- //     console.log(limit);
- 
- //     //if type is 'all'
- //     if(limit == 0){
- //         searchType = "default";
- //         return;
- //     };
- 
- 
- //     searchType = "byType";
- 
-      
-     
- 
-     
- //     //saves what its searching by, type or default
- //     localStorage.setItem('searchType', searchTypeCheck);
- //     window.location.reload();
- 
- 
- //     // let typeSearchURl = TYPE_URL + limit + "/";
- //     // getData(typeSearchURl);
- 
- 
- // }
- 
- 
-  //if data loaded shows it on page if type search
- //  function dataLoadedType(e)
- //  {
- //     //manages when searching by type
- //     let xhr = e.target;
- //     //console.log(xhr.responseText);
- //     let obj = JSON.parse(xhr.responseText);
- //     console.log(obj);
- //     let bigString = "";
- //     let pokeByTypeArray =[];
-     
- //     //gets types into array
- //     //saves urls of pokemon
- //     for(i=0; i < obj.pokemon.length; i++)
- //     {
- //         pokeByTypeArray.push((obj.pokemon[i].pokemon.url));
-            
- //     }
-     
- //     // let pokeNumsArray = [];
-     
- //     // for(i = 0; i < 8; i++)
- //     //    {
- //     //     pokeNumsArray.push(number + i);
- //     //    }
- 
- //     //    pokeNumsArray.forEach(element => {
- //     //     let tempUrl = pokeNumsArray;
- //     //     getData(tempUrl);
- //     //     tempUrl = "";
- //     // });
-     
- //     //gets sprite     
- //     let smallURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/`+obj.id+`.png`;
-          
-         
- 
- //     //makes div for pokemon
- //     let line = `<div class = 'result'><p> ID:</p> <p id='pokeid`+obj.id+`'>` + obj.id + `</p>`;
- //     line += "<br><br><p> Name: " + obj.name + "</p>";
- //     line+= `<img src='${smallURL}' title= '${obj.name}'/ width = 200px height = 200px>`;
- //     line+= `<button type='button' onclick='newPage(${obj.id})' id='info`+obj.id+` class='green'>Click For More Info!</button></div>`;
-     
- //     bigString += line;
- //     console.log(`#info`+obj.id+``);
- 
-         
-     
- 
- //     addToGrid(bigString);
-     
- //  }
