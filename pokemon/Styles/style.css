@@ -1,0 +1,258 @@
+/* Color pallete: https://coolors.co/palette/f27930-a1d5d4-fed349-7ec9ab-e35932-8d7592-f2ccd5-577ba6 */
+
+/* get fonts */
+@font-face
+{
+    font-family: title;
+    src: url(PokemonSolid.ttf);
+}
+
+@font-face
+{
+    font-family: normalText;
+    src: url(PokemonClassic.ttf);
+
+}
+
+body
+{
+    background-color: #F27930;
+}
+
+h1
+{
+    font-family: title;  
+    font-size: 5rem;
+    color: #FED349;
+    text-shadow: -5px 0 #577BA6, 0 5px #577BA6, 5px 0 #577BA6, 0 -5px #577BA6;
+    
+}
+
+h3
+{
+    font-size: 1rem;
+    
+}
+
+p
+{
+    font-family: normalText;
+}
+
+/* makes main page grid */
+#main
+{
+
+    display: grid;
+    width:100vw;
+    height: 100vh;
+    grid-template-areas:
+    "a1"
+    "b1"
+    "c1";
+    grid-template-rows: 1vh;
+
+    align-self: center;
+    justify-self: center;
+
+}
+
+
+/* puts title at the top */
+header
+{
+    padding: 4rem;
+    grid-area: a1;
+     /* background-color:red;  */
+    text-align: center;
+   
+}
+
+button
+{
+    border-radius: 25px;
+    padding: 5px;
+    padding-right: 8px;
+    padding-left: 8px;
+    margin: 2px;
+    background-color: #FED349;
+    border: none;
+    transition-duration: 0.4s;
+}
+
+button:hover
+{
+    background-color: #7EC9AB;
+}
+
+
+
+.searchThings
+{
+    /* padding: 5rem; */
+    grid-area: b1;
+    /* background-color:red;  */
+
+    display: grid;
+    grid-template-areas: "a4 b4 c4";
+    grid-template-columns: 1fr 20px 1fr;
+    margin: 20px;
+    text-align: center;
+    padding-bottom: 3rem;;
+
+}
+
+/* search grid!!!! */
+.inputIntoSearchBar
+{
+    grid-area: a4;
+}
+
+#or
+{
+    grid-area: b4;
+}
+
+.sortResultsOptions
+{
+    grid-area: c4;
+}
+
+
+
+
+#adjustSearch
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* everything under title */
+.underTitle
+{
+    grid-area: c1;
+    /* background-color:blue;   */
+    padding-top: 2rem;
+}
+
+
+/* centers search bar */
+
+
+.searchBar
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+/* makes grid for pokemons displayed on title screen */
+.pokemonGrid
+{
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    margin: 1rem;
+    font-family: normalText;
+    
+    /* background-color: white; */
+
+}
+
+.prevNextButtons
+{
+   
+    
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result
+{
+    border-radius: 25px;
+    border: 1px solid #FED349;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: #E35932;
+}
+
+.result p
+{
+    text-align: center;
+}
+
+.result img
+{
+    display: flex;
+    justify-content: center;
+}
+
+.result button
+{
+    margin-left: 2rem;
+    display: flex;
+    justify-content: center; 
+    
+}
+
+.pokemonIDCard
+{
+    display: grid;
+    /* width:100vw;
+    height: 100vh; */
+    grid-template-areas:
+    "a3 b3";
+    grid-template-columns: 50%;  
+}
+
+#pokeImage
+{
+    
+    margin: 20%;
+    grid-area: a3;
+    display: flex;
+    justify-content: center;
+}
+
+#pokeDescription
+{
+    padding-left: 2rem;
+    border: 1px solid black;
+    margin-right: 20%;
+    margin:2rem;
+    grid-area: b3;
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#displayName
+{
+    
+    text-align: center;
+}
+
+#mainPage
+{
+    
+    display:flex;
+    align-self: center;
+    justify-self: flex-start;
+}
+#displaying
+{
+    font-family: normalText;
+    text-align: center;
+}
+
+#addButton
+{
+    margin-left: 45%;
+}
