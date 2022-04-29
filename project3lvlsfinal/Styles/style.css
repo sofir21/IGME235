@@ -1,0 +1,233 @@
+@font-face
+{
+    font-family: title;
+    src: url(Dinkebilo-Dino-Regular.ttf);
+}
+
+@font-face
+{
+    font-family: heading;
+    src: url(Dinotype-Demo.ttf);
+
+}
+@font-face
+{
+    font-family: regular;
+    src: url(Sansation_Regular.ttf);
+
+}
+
+body
+{
+    font-family: regular;
+    margin-top: 0rem;
+    padding-top: 0rem;
+    margin-bottom: 0rem;
+    padding-bottom: 0rem;
+    background-image: url("../Images/back.jpg");
+    background-repeat: repeat;
+    
+}
+
+h3
+{
+    font-family: heading;
+    font-weight: bold;
+}
+
+
+/* Creates grid */
+
+.wrapper
+{
+    
+    display: grid;
+    /* width:100vw; */
+    height: 100vh;
+    padding-left: 15%;
+    padding-right: 15%;
+    grid-template-areas:
+    "a1"
+    "b1";
+    grid-template-rows: 6.5rem 1fr;
+
+    /* align-self: center;
+    justify-self: center; */
+}
+
+
+/* header */
+.header
+{
+    
+    grid-area: a1;
+    font-family: title;
+    background-color: #432818;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* column-gap: auto; */
+}
+.header p
+{
+    margin-top: 0rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    font-family: title;
+    font-size: 400%;
+    color: #FFE6A7;
+
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header h3
+{
+    font-family: regular;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    color:#FFE6A7;
+    padding-right: 2rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* .header img
+{
+    height: 50px;
+    width: 50px;
+} */
+
+
+/* body */
+
+.main
+{
+    grid-area: b1;
+    text-align: center;
+    background-color: #BB9457;
+    padding-top: 2rem;
+    
+    
+    
+}
+
+.main2 h3
+{
+    color: #6F1D1B;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 2rem;
+}
+
+.main2
+{
+    grid-area: b1;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+    text-align: center;
+    background-color: #BB9457;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#returnPage
+{
+    align-self: center;
+    width: 5rem;
+}
+
+.main h3
+{
+    color: #6F1D1B;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 2rem;
+}
+
+.main p
+{
+    padding-left: 20%;
+    padding-right: 20%;
+    color: #432818;
+    font-size: 1rem;
+}
+
+/* buttons */
+
+button
+{
+    border-radius: 25px;
+    padding: 5px;
+    padding-right: 8px;
+    padding-left: 8px;
+    margin: 2px;
+    background-color: #6F1D1B;
+    color:#FFE6A7;
+    border: none;
+    transition-duration: 0.4s;
+}
+
+button:hover
+{
+    background-color: #FFE6A7;
+    color:#6F1D1B;
+}
+
+/* this is all the css for the grid */
+
+
+#dinoDig .grid {
+    display: grid;
+    column-gap: 0.3rem;
+    row-gap: 0.3rem;
+
+    /* size of the grid */
+    width: 25rem;
+    height: 25rem;
+    margin: auto;
+}
+
+/* under block */
+#dinoDig .grid .block{
+    background-color: #6F1D1B;
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    text-align: center;
+    color: #FFE6A7;
+    cursor: pointer;
+}
+
+/* covers values */
+#dinoDig .grid .block::after{
+    content: "";
+    background-color: #99582A;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 3rem;
+    opacity: 1;
+    transition: all .5s;
+}
+
+/* shows through */
+#dinoDig .grid .block.visible::after{
+
+    opacity: 0;
+}
+
+/* makes sure number is on middle */
+#dinoDig .grid .block .center{
+    
+    font-size: 1rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
