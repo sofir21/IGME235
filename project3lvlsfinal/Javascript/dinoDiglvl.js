@@ -112,13 +112,14 @@ const boneDigger = (function() {
         }
     }
 
-    console.log(boneIndexes);
+    
 
       // mark surrounding squares with bone count
       boneIndexes.forEach(bIndex => {
 
         const neighbours = gameManager.neighbours(bIndex, collumns, rows);
-        console.log("wtf");
+       
+        
         neighbours.forEach(neighbour => {
 
             // fill square with block if it is empty
@@ -135,20 +136,6 @@ const boneDigger = (function() {
     });
 
 
-
-    // console.log("printing grid");
-    // for (let i = 0; i < (collumns*rows); i++) {
-    //     console.log("grid index "+ i);
-    //     console.log(grid[i]);
-    // }
-
-
-
-    //  console.log("printing grid isbone");
-    //  for (let i = 0; i < (collumns*rows); i++) {
-    //      console.log("grid index "+ i);
-    //      console.log(grid[i].isBone);
-    //  }
 
 
     for (let i = 0; i < (collumns*rows); i++) {
@@ -232,11 +219,11 @@ const boneDigger = (function() {
     function check() {
         if(visibleBlockCount + boneCount === collumns * rows) {
             // all blocks are visible and all bone blocks are hidden
-            console.log("true");
+           
             return true;
 
         }
-        console.log("false");
+        
     }
 
 

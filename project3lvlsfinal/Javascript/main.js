@@ -31,7 +31,7 @@ function loadGameRandom()
  function loadGameLevels()
  {
      localStorage.setItem('gameState', 2);
-    console.log(level);
+   
 
       if(level == 1)
       {
@@ -43,7 +43,6 @@ function loadGameRandom()
       }
       else
       {
-          console.log("oopie");
       }
      
  }

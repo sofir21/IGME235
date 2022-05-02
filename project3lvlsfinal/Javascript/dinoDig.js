@@ -145,11 +145,11 @@ const boneDigger = (function() {
     function check() {
         if(visibleBlockCount + boneCount === collumns * rows) {
             // all blocks are visible and all bone blocks are hidden
-            console.log("true");
+            
             return true;
             
         }
-        console.log("false");
+        
     }
 
 
