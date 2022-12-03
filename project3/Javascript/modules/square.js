@@ -36,5 +36,13 @@ class Block extends Square {
 }
 
 
+class FootPrint extends Square {
+    constructor() {
+        super();
 
-export {Block, Bone}
+        this.isBone = true;
+        this.value = `<img src='./Images/fprint.png' height= 48px width = 48px>`;
+    }
+} 
+
+export {Block, Bone, FootPrint}

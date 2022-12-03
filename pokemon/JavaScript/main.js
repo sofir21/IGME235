@@ -11,6 +11,7 @@
      document.querySelector("#next").onclick = nextButtonClicked;
      document.querySelector("#prev").onclick = prevButtonClicked;
      document.querySelector("#limit").onchange = limitChange;   
+     //gets offset if theres a preexisting one
     if(localStorage.getItem('offset')){
         offset = parseInt(localStorage.getItem('offset'));
     }
@@ -18,6 +19,7 @@
     {
         offset = 0;
     }
+    //gets limit if theres a preexisting one
     if(localStorage.getItem('limit')){
         limit = parseInt(localStorage.getItem('limit'));
     }
@@ -53,18 +55,6 @@
  {
      console.log("loaded poke grid start");
      
-     //sets up button to adjust search to limit if its changed
-     //document.querySelector("#adjustSearch").innerHTML = `<button type='button' onclick='reloadPage()' id='mainPage' class='green'>Refresh</button>`
- 
-    //  document.querySelector(".prevNextButtons").innerHTML = `<button type='button' id='prev' class='green'>Previous</button>
-    //  <button type='button' id='next' class='green'>Next</button>`;
-
-       
-
-
-     //loads pokemon onto page
-     //let limit = document.querySelector("#limit").value;
-
      let tempURL = POKE_URL + "?offset=" + offset + "&limit=" + limit;
      console.log(tempURL);
  
@@ -78,13 +68,12 @@
  //checks for search limit
  function reloadPage()
  {
-     //let newlimit = document.querySelector("#limit").value;
-
      console.log(limit);
      document.querySelector(".pokemonGrid").innerHTML = "";
      loadPokemon();
  }
 
+ //back button in case search doesnt produce results or theres an error
 function backButton(){
     document.querySelector(".prevNextButtons").innerHTML = `<button type='button' id='prev' class='green'>Previous</button>
       <button type='button' id='next' class='green'>Next</button>`;
@@ -96,17 +85,18 @@ function backButton(){
 
 
 
- 
+  //handles change in limit search
  function limitChange(){
     let limitObject = document.querySelector("#limit");
     let limitIndex = parseInt(limitObject.options[limitObject.selectedIndex].value);
     localStorage.setItem('limit',limitIndex);
+    limit = limitObject.value;
     reloadPage();
  }
  
+  //changes offset by limit if next button is clicked
  function nextButtonClicked()
  {
-     //let limit = document.querySelector("#limit").value;
      offset += parseInt(limit);
      localStorage.setItem('offset', offset);
      document.querySelector(".pokemonGrid").innerHTML = "";
@@ -117,10 +107,9 @@ function backButton(){
  
  }
  
- 
+ //changes offset by limit if previous button is clicked
  function prevButtonClicked()
  {
-     //let limit = document.querySelector("#limit").value;
      if((offset - parseInt(limit))> 0)
      {
          offset -= parseInt(limit);
@@ -144,7 +133,7 @@ function backButton(){
  }
  
  
- 
+ //searches pokemon by name or id
   function searchButtonClicked(){
       console.log("searchButtonClicked() called");
       document.querySelector(".pokemonGrid").innerHTML = "";
@@ -206,7 +195,6 @@ function backButton(){
  function getSpecificPokemon(obj)
  {
      
-     //console.log("Results!!!!!!");
  
      for(let i = 0; i < obj.results.length; i++){
          getData2(obj.results[i].url);
